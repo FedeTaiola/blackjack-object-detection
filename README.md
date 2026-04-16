@@ -1,40 +1,35 @@
 # 🃏 Blackjack Object Detection (WIP)
 
-An End-to-End Computer Vision and Machine Learning pipeline designed to detect and recognize Blackjack cards in real-time directly from the screen. This project is currently a Work In Progress (WIP).
+An End-to-End Computer Vision and Machine Learning pipeline designed to detect and recognize Blackjack cards in real-time.
 
 ## 🚀 Project Overview
 
-The goal of this project is to build a real-time card recognition system. The pipeline is divided into three main phases:
-1.  **Data Collection:** Custom high-frequency screen capture script to build a proprietary dataset.
-2.  **Annotation & Training:** Manual annotation and model training using **YOLOv11** via Roboflow.
-3.  **Real-Time Inference (WIP):** Live screen analysis to detect cards and calculate Blackjack values.
+The project focuses on building a proprietary dataset for high-frequency card detection:
+1. Data Collection: Custom screen capture script (data_collector.py).
+2. Annotation & Training: Model training using YOLOv11 via Roboflow.
+3. Real-Time Inference (WIP): Integration for live game analysis.
 
-## 🛠️ Tech Stack & Tools
+## 🧠 Model Training (YOLOv11)
 
-*   **Python:** Core programming language.
-*   **OpenCV (`cv2`):** Image processing and rendering.
-*   **mss:** Ultra-fast cross-platform module for taking screenshots.
-*   **Roboflow & YOLOv11:** For dataset management, annotation, and training the Object Detection model.
+The model was trained on a custom dataset annotated manually. Below is a sample of the detection performance:
 
-## 📂 Current Progress
+![Modello in azione](samples/54243037-a4a0-4265-96f1-041c8ebd8312.jpg)
 
-*   ✅ **`data_collector.py`:** A custom script that captures a specific region of the screen (the game window) and saves the frames as `.jpg` using UUIDs. It uses keyboard hooks (`s` to save, `q` to quit) for rapid data gathering.
-*   ✅ **Model Training:** Initial model (`FORSECISIAMO 3`) trained on Roboflow using YOLOv11 architecture, achieving preliminary metrics (Precision: 78.8%).
-*   ⏳ **Inference Engine:** *Currently in development.* Integration of the YOLO model to perform live detection and calculate the cards' sum.
+## 🛠️ Tech Stack
 
-## 💻 How to use the Data Collector
+*   **Python:** Core logic.
+*   **OpenCV:** Image processing.
+*   **Roboflow & YOLOv11:** For training and detection.
 
-If you want to gather more training data:
+## 💻 How to Collect Data
 
-1. Install the dependencies:
-   ```bash
+1. **Install dependencies:**
    pip install opencv-python mss keyboard numpy
-   ```
-2. Run the script:
-   ```bash
+
+2. **Run the collector:**
    python data_collector.py
-   ```
-3. Place your game window in the top-left corner of the screen. Press `S` to save a frame, `Q` to quit. Images will be saved in the `dataset_raw` folder.
+   
+   (Press S to save a frame, Q to quit.)
 
 ---
-*Developed by [Federico Taiola](https://github.com/FedeTaiola)*
+*Developed by Federico Taiola*
